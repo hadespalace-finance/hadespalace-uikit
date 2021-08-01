@@ -115,6 +115,11 @@ export const links = [
 
 export const socials = [
   {
+    label: "Gitbook",
+    icon: "GitbookIcon",
+    href: "https://hades-palace.gitbook.io/hades-palace/",
+  },
+  {
     label: "Telegram",
     icon: "TelegramIcon",
     href: "https://t.me/joinchat/HfAajtswH4dhYjdh"
@@ -124,12 +129,7 @@ export const socials = [
     icon: "TwitterIcon",
     href: "https://twitter.com/hadespalacedefi",
   }
-  // ,
-  // {
-  //   label: "Reddit",
-  //   icon: "RedditIcon",
-  //   href: "https://www.reddit.com/r/Gloccoin/",
-  // },
+  
 ];
 
 export const MENU_HEIGHT = 64;
