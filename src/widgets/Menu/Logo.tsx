@@ -17,7 +17,7 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   .mobile-icon {
-    width: 44px;
+    width: 120px;
     ${({ theme }) => theme.mediaQueries.nav} {
       display: none;
     }
