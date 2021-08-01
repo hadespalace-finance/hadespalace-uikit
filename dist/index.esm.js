@@ -2674,7 +2674,7 @@ var MobileOnlyOverlay = styled(Overlay)(templateObject_6 || (templateObject_6 = 
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 });
-styled.div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  margin-right: 20px;\n  display: none;\n\n  ", " {\n    display: block;\n  }\n"], ["\n  margin-right: 20px;\n  display: none;\n\n  ", " {\n    display: block;\n  }\n"])), function (_a) {
+var PriceWrapper = styled.div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  margin-right: 20px;\n  display: none;\n\n  ", " {\n    display: block;\n  }\n"], ["\n  margin-right: 20px;\n  display: none;\n\n  ", " {\n    display: block;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.sm;
 });
@@ -2721,9 +2721,9 @@ var Menu = function (_a) {
         React.createElement(Header, null,
             React.createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React.createElement(Flex, null,
-                cakePriceUsd ? (React.createElement(PriceLink$1, { href: priceLink, target: "_blank" },
+                React.createElement(PriceWrapper, null, cakePriceUsd ? (React.createElement(PriceLink$1, { href: priceLink, target: "_blank" },
                     React.createElement(Icon$v, { width: "24px", height: "24px", mr: "8px" }),
-                    React.createElement(Text, { color: "textSubtle", bold: true }, "$" + cakePriceUsd.toFixed(3)))) : (React.createElement(Skeleton, { width: 80, height: 24 })),
+                    React.createElement(Text, { color: "textSubtle", bold: true }, "$" + cakePriceUsd.toFixed(3)))) : (React.createElement(Skeleton, { width: 80, height: 24 }))),
                 React.createElement(UserBlock, { account: account, login: login, logout: logout, showMenu: showMenu }))),
         React.createElement(StyledNav, { showMenu: showMenu },
             React.createElement(NavMenu, { isPushed: isPushed, links: links }),
