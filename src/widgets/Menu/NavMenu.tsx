@@ -26,7 +26,7 @@ const Container = styled.div`
   }
 `;
 
-const HeaderMenu: React.FC<Props> = ({ isPushed, links }) => {
+const NavMenu: React.FC<Props> = ({ isPushed, links }) => {
   const location = useLocation();
 
   return (
@@ -49,4 +49,4 @@ const HeaderMenu: React.FC<Props> = ({ isPushed, links }) => {
   );
 };
 
-export default HeaderMenu;
+export default NavMenu;

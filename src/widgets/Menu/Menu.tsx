@@ -10,8 +10,11 @@ import UserBlock from "./UserBlock";
 import { NavProps } from "./types";
 import { MENU_HEIGHT } from "./config";
 import Avatar from "./Avatar";
-import HeaderMenu from "./HeaderMenu";
+import NavMenu from "./NavMenu";
 import PanelFooter from "./PanelFooter";
+import { PancakeRoundIcon } from "../../components/Svg";
+import { Text } from "../../components/Text";
+import { Skeleton } from "../../components/Skeleton";
 
 const Wrapper = styled.div`
   position: relative;
@@ -20,10 +23,17 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 
+const Header = styled.div`
+  padding: 20px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+
 const StyledNav = styled.nav<{ showMenu: boolean }>`
-  position: fixed;
-  top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
-  left: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   transition: top 0.2s;
   width: 100%;
   height: ${MENU_HEIGHT}px;
@@ -67,6 +77,19 @@ const MobileOnlyOverlay = styled(Overlay)`
 
   ${({ theme }) => theme.mediaQueries.nav} {
     display: none;
+  }
+`;
+
+const PriceLink = styled.a`
+  display: flex;
+  align-items: center;
+  svg {
+    transition: transform 0.3s;
+  }
+  :hover {
+    svg {
+      transform: scale(1.2);
+    }
   }
 `;
 
@@ -125,15 +148,28 @@ const Menu: React.FC<NavProps> = ({
 
   return (
     <Wrapper>
+      <Header>
+        <Logo
+          isPushed={isPushed}
+          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
+          isDark={isDark}
+          href={homeLink?.href ?? "/"}
+        />
+        <Flex>
+          {cakePriceUsd ? (
+            <PriceLink href={priceLink} target="_blank">
+              <PancakeRoundIcon width="24px" height="24px" mr="8px" />
+              <Text color="textSubtle" bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
+            </PriceLink>
+          ) : (
+            <Skeleton width={80} height={24} />
+          )}
+          <UserBlock account={account} login={login} logout={logout} showMenu={showMenu} />
+        </Flex>
+      </Header>
       <StyledNav showMenu={showMenu}>
         <NavWrapper>
-          <Logo
-            isPushed={isPushed}
-            togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
-            isDark={isDark}
-            href={homeLink?.href ?? "/"}
-          />
-          <HeaderMenu isPushed={isPushed} links={links} />
+          <NavMenu isPushed={isPushed} links={links} />
           <Flex>
             <PanelFooter
               showOnNav
@@ -149,7 +185,6 @@ const Menu: React.FC<NavProps> = ({
               priceLink={priceLink} />
             {profile && <Avatar profile={profile} />}
           </Flex>
-          <UserBlock account={account} login={login} logout={logout} showMenu={showMenu} />
         </NavWrapper>
       </StyledNav>
       <BodyWrapper>
