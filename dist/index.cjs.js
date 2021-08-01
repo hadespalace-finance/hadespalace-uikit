@@ -2679,10 +2679,7 @@ var StyledNav = styled__default['default'].nav(templateObject_3$8 || (templateOb
     return theme.mediaQueries.nav;
 });
 var BodyWrapper = styled__default['default'].div(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
-var Inner = styled__default['default'].div(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
-    var showMenu = _a.showMenu;
-    return (showMenu ? MENU_HEIGHT + "px" : 0);
-});
+var Inner = styled__default['default'].div(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: 0;\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n"], ["\n  flex-grow: 1;\n  margin-top: 0;\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n"])));
 var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"], ["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.nav;
