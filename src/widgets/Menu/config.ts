@@ -117,12 +117,12 @@ export const socials = [
   {
     label: "Telegram",
     icon: "TelegramIcon",
-    href: "https://t.me/FlatEarthTokenOffical"
+    href: "https://t.me/joinchat/HfAajtswH4dhYjdh"
   },
   {
     label: "Twitter",
     icon: "TwitterIcon",
-    href: "https://twitter.com/flat_token?s=21",
+    href: "https://twitter.com/hadespalacedefi",
   }
   // ,
   // {

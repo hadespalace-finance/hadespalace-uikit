@@ -16,6 +16,8 @@ import PanelFooter from "./PanelFooter";
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
+  max-width: 1280px;
+  margin: auto;
 `;
 
 const StyledNav = styled.nav<{ showMenu: boolean }>`
@@ -147,6 +149,7 @@ const Menu: React.FC<NavProps> = ({
               priceLink={priceLink} />
             {profile && <Avatar profile={profile} />}
           </Flex>
+          <UserBlock account={account} login={login} logout={logout} showMenu={showMenu} />
         </NavWrapper>
       </StyledNav>
       <BodyWrapper>
@@ -164,7 +167,6 @@ const Menu: React.FC<NavProps> = ({
           links={links}
           priceLink={priceLink}
         />
-        <UserBlock account={account} login={login} logout={logout} showMenu={showMenu} />
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>
