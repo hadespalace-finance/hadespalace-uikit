@@ -1902,8 +1902,8 @@ var Icon$S = function (props) {
 
 var Logo = function (_a) {
     var isDark = _a.isDark, props = __rest(_a, ["isDark"]);
-    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 200 36" }, props),
-        React__default['default'].createElement("image", { width: "200", height: "36", href: isDark ? '/images/egg/LogoTextNewDark.png' : '/images/egg/LogoTextNewWhite.png' })));
+    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 480 148" }, props),
+        React__default['default'].createElement("image", { width: "480", height: "148", href: isDark ? '/images/egg/LogoTextNewDark.png' : '/images/egg/LogoTextNewWhite.png' })));
 };
 
 var Icon$T = function (props) {
@@ -2733,7 +2733,7 @@ var Menu = function (_a) {
     return (React__default['default'].createElement(Wrapper$2, null,
         React__default['default'].createElement(Header, null,
             React__default['default'].createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
-            React__default['default'].createElement(Flex, null,
+            React__default['default'].createElement(Flex, { alignItems: "center" },
                 React__default['default'].createElement(PriceWrapper, null, cakePriceUsd ? (React__default['default'].createElement(PriceLink$1, { href: priceLink, target: "_blank" },
                     React__default['default'].createElement(Icon$v, { width: "24px", height: "24px", mr: "8px" }),
                     React__default['default'].createElement(Text, { color: "textSubtle", bold: true }, "$" + cakePriceUsd.toFixed(3)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 }))),

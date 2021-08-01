@@ -1889,8 +1889,8 @@ var Icon$S = function (props) {
 
 var Logo = function (_a) {
     var isDark = _a.isDark, props = __rest(_a, ["isDark"]);
-    return (React.createElement(Svg, __assign({ viewBox: "0 0 200 36" }, props),
-        React.createElement("image", { width: "200", height: "36", href: isDark ? '/images/egg/LogoTextNewDark.png' : '/images/egg/LogoTextNewWhite.png' })));
+    return (React.createElement(Svg, __assign({ viewBox: "0 0 480 148" }, props),
+        React.createElement("image", { width: "480", height: "148", href: isDark ? '/images/egg/LogoTextNewDark.png' : '/images/egg/LogoTextNewWhite.png' })));
 };
 
 var Icon$T = function (props) {
@@ -2720,7 +2720,7 @@ var Menu = function (_a) {
     return (React.createElement(Wrapper$2, null,
         React.createElement(Header, null,
             React.createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
-            React.createElement(Flex, null,
+            React.createElement(Flex, { alignItems: "center" },
                 React.createElement(PriceWrapper, null, cakePriceUsd ? (React.createElement(PriceLink$1, { href: priceLink, target: "_blank" },
                     React.createElement(Icon$v, { width: "24px", height: "24px", mr: "8px" }),
                     React.createElement(Text, { color: "textSubtle", bold: true }, "$" + cakePriceUsd.toFixed(3)))) : (React.createElement(Skeleton, { width: 80, height: 24 }))),

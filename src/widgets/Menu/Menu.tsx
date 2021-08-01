@@ -157,7 +157,7 @@ const Menu: React.FC<NavProps> = ({
           isDark={isDark}
           href={homeLink?.href ?? "/"}
         />
-        <Flex>
+        <Flex alignItems="center">
           <PriceWrapper>
             {cakePriceUsd ? (
               <PriceLink href={priceLink} target="_blank">
