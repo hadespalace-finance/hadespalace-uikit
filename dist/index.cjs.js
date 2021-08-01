@@ -2681,6 +2681,7 @@ var Avatar = function (_a) {
 };
 var templateObject_1$H, templateObject_2$f;
 
+var Icons$2 = IconModule;
 var Container$5 = styled__default['default'].div(templateObject_1$I || (templateObject_1$I = __makeTemplateObject(["\n  display: none;\n  overflow-y: auto;\n  overflow-x: hidden;\n\n  ", " {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n"], ["\n  display: none;\n  overflow-y: auto;\n  overflow-x: hidden;\n\n  ", " {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.nav;
@@ -2690,8 +2691,11 @@ var HeaderMenu = function (_a) {
     var location = reactRouterDom.useLocation();
     return (React__default['default'].createElement(Container$5, null, links.map(function (entry) {
         var calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
+        var Icon = Icons$2[entry.icon];
+        var iconElement = React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
         return (React__default['default'].createElement(MenuEntry, { key: entry.label, isActive: entry.href === location.pathname, className: calloutClass, hideShadow: true },
             React__default['default'].createElement(MenuLink, { href: entry.href },
+                iconElement,
                 React__default['default'].createElement(LinkLabel, { isPushed: isPushed }, entry.label))));
     })));
 };
