@@ -41,23 +41,16 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
-`;
-
-const NavWrapper = styled.div`
-  max-width: 1600px;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 8px;
-  padding-right: 16px;
+  display: none;  
 
   ${({ theme }) => theme.mediaQueries.nav} {
-    padding-left: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
   }
-`
+`;
 
 const BodyWrapper = styled.div`
   position: relative;
@@ -79,6 +72,15 @@ const MobileOnlyOverlay = styled(Overlay)`
     display: none;
   }
 `;
+
+const PriceWrapper = styled.div`
+  margin-right: 20px;
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    display: block;
+  }
+`
 
 const PriceLink = styled.a`
   display: flex;
@@ -156,6 +158,7 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
         />
         <Flex>
+
           {cakePriceUsd ? (
             <PriceLink href={priceLink} target="_blank">
               <PancakeRoundIcon width="24px" height="24px" mr="8px" />
@@ -168,24 +171,19 @@ const Menu: React.FC<NavProps> = ({
         </Flex>
       </Header>
       <StyledNav showMenu={showMenu}>
-        <NavWrapper>
-          <NavMenu isPushed={isPushed} links={links} />
-          <Flex>
-            <PanelFooter
-              showOnNav
-              isPushed={isPushed}
-              isDark={isDark}
-              toggleTheme={toggleTheme}
-              langs={langs}
-              setLang={setLang}
-              currentLang={currentLang}
-              cakePriceUsd={cakePriceUsd}
-              pushNav={setIsPushed}
-              links={links}
-              priceLink={priceLink} />
-            {profile && <Avatar profile={profile} />}
-          </Flex>
-        </NavWrapper>
+        <NavMenu isPushed={isPushed} links={links} />
+        <PanelFooter
+          showOnNav
+          isPushed={isPushed}
+          isDark={isDark}
+          toggleTheme={toggleTheme}
+          langs={langs}
+          setLang={setLang}
+          currentLang={currentLang}
+          cakePriceUsd={cakePriceUsd}
+          pushNav={setIsPushed}
+          links={links}
+          priceLink={priceLink} />
       </StyledNav>
       <BodyWrapper>
         <Panel

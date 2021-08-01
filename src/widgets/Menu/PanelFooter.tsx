@@ -30,7 +30,7 @@ const Container = styled.div<{ showOnNav?: boolean }>`
   ${({ theme }) => theme.mediaQueries.nav} {
     padding: 0;
     overflow-x: hidden;
-    width: ${({ showOnNav, theme }) => showOnNav ? "200px" : '100%'};
+    width: ${({ showOnNav, theme }) => showOnNav ? "110px" : '100%'};
   }
 `;
 
