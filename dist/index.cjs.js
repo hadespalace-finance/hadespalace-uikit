@@ -9,6 +9,9 @@ var get = require('lodash/get');
 var noop = require('lodash/noop');
 var debounce = require('lodash/debounce');
 var throttle = require('lodash/throttle');
+var Slider = require('react-slick');
+require('slick-carousel/slick/slick.css');
+require('slick-carousel/slick/slick-theme.css');
 var reactRouterDom = require('react-router-dom');
 var reactTransitionGroup = require('react-transition-group');
 
@@ -20,6 +23,7 @@ var get__default = /*#__PURE__*/_interopDefaultLegacy(get);
 var noop__default = /*#__PURE__*/_interopDefaultLegacy(noop);
 var debounce__default = /*#__PURE__*/_interopDefaultLegacy(debounce);
 var throttle__default = /*#__PURE__*/_interopDefaultLegacy(throttle);
+var Slider__default = /*#__PURE__*/_interopDefaultLegacy(Slider);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -2669,7 +2673,7 @@ var NavMenu = function (_a) {
 };
 var templateObject_1$H;
 
-var Wrapper$2 = styled__default['default'].div(templateObject_1$I || (templateObject_1$I = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  max-width: 1280px;\n  margin: auto;\n"], ["\n  position: relative;\n  width: 100%;\n  max-width: 1280px;\n  margin: auto;\n"])));
+var Wrapper$2 = styled__default['default'].div(templateObject_1$I || (templateObject_1$I = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  max-width: 1320px;\n  margin: auto;\n"], ["\n  position: relative;\n  width: 100%;\n  max-width: 1320px;\n  margin: auto;\n"])));
 var Header = styled__default['default'].div(templateObject_2$f || (templateObject_2$f = __makeTemplateObject(["\n  padding: 20px 15px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n"], ["\n  padding: 20px 15px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n"])));
 var StyledNav = styled__default['default'].nav(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  transition: top 0.2s;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  display: none;  \n\n  ", " {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding-left: 16px;\n    padding-right: 16px;\n  }\n"], ["\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  transition: top 0.2s;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  display: none;  \n\n  ", " {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding-left: 16px;\n    padding-right: 16px;\n  }\n"])), MENU_HEIGHT, function (_a) {
     var theme = _a.theme;
@@ -2689,6 +2693,8 @@ var PriceWrapper = styled__default['default'].div(templateObject_7 || (templateO
     return theme.mediaQueries.sm;
 });
 var PriceLink$1 = styled__default['default'].a(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
+var SlickWrapper = styled__default['default'].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  margin-bottom: 10px;\n  width: 100%;\n"], ["\n  margin-bottom: 10px;\n  width: 100%;\n"])));
+var SlickImage = styled__default['default'].img(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n  width: 100%;\n  height: auto;\n"], ["\n  width: 100%;\n  height: auto;\n"])));
 var Menu = function (_a) {
     var _b;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, priceLink = _a.priceLink; _a.profile; var children = _a.children;
@@ -2727,7 +2733,25 @@ var Menu = function (_a) {
     }, []);
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
+    var slickSettings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        // speed: 500,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
     return (React__default['default'].createElement(Wrapper$2, null,
+        React__default['default'].createElement(SlickWrapper, null,
+            React__default['default'].createElement(Slider__default['default'], __assign({}, slickSettings),
+                React__default['default'].createElement("div", null,
+                    React__default['default'].createElement(SlickImage, { src: "/images/slick/slick-1.png", alt: "slide 1" })),
+                React__default['default'].createElement("div", null,
+                    React__default['default'].createElement(SlickImage, { src: "/images/slick/slick-2.png", alt: "slide 2" })),
+                React__default['default'].createElement("div", null,
+                    React__default['default'].createElement(SlickImage, { src: "/images/slick/slick-3.png", alt: "slide 3" })))),
         React__default['default'].createElement(Header, null,
             React__default['default'].createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React__default['default'].createElement(Flex, { alignItems: "center" },
@@ -2743,7 +2767,7 @@ var Menu = function (_a) {
             React__default['default'].createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
             React__default['default'].createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };
-var templateObject_1$I, templateObject_2$f, templateObject_3$8, templateObject_4$3, templateObject_5$1, templateObject_6, templateObject_7, templateObject_8;
+var templateObject_1$I, templateObject_2$f, templateObject_3$8, templateObject_4$3, templateObject_5$1, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;
 
 var ToastAction = function (_a) {
     var action = _a.action;

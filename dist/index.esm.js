@@ -5,6 +5,9 @@ import get from 'lodash/get';
 import noop from 'lodash/noop';
 import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { Link as Link$1, NavLink, useLocation } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -2656,7 +2659,7 @@ var NavMenu = function (_a) {
 };
 var templateObject_1$H;
 
-var Wrapper$2 = styled.div(templateObject_1$I || (templateObject_1$I = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  max-width: 1280px;\n  margin: auto;\n"], ["\n  position: relative;\n  width: 100%;\n  max-width: 1280px;\n  margin: auto;\n"])));
+var Wrapper$2 = styled.div(templateObject_1$I || (templateObject_1$I = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  max-width: 1320px;\n  margin: auto;\n"], ["\n  position: relative;\n  width: 100%;\n  max-width: 1320px;\n  margin: auto;\n"])));
 var Header = styled.div(templateObject_2$f || (templateObject_2$f = __makeTemplateObject(["\n  padding: 20px 15px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n"], ["\n  padding: 20px 15px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n"])));
 var StyledNav = styled.nav(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  transition: top 0.2s;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  display: none;  \n\n  ", " {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding-left: 16px;\n    padding-right: 16px;\n  }\n"], ["\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  transition: top 0.2s;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  display: none;  \n\n  ", " {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding-left: 16px;\n    padding-right: 16px;\n  }\n"])), MENU_HEIGHT, function (_a) {
     var theme = _a.theme;
@@ -2676,6 +2679,8 @@ var PriceWrapper = styled.div(templateObject_7 || (templateObject_7 = __makeTemp
     return theme.mediaQueries.sm;
 });
 var PriceLink$1 = styled.a(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
+var SlickWrapper = styled.div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  margin-bottom: 10px;\n  width: 100%;\n"], ["\n  margin-bottom: 10px;\n  width: 100%;\n"])));
+var SlickImage = styled.img(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n  width: 100%;\n  height: auto;\n"], ["\n  width: 100%;\n  height: auto;\n"])));
 var Menu = function (_a) {
     var _b;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, priceLink = _a.priceLink; _a.profile; var children = _a.children;
@@ -2714,7 +2719,25 @@ var Menu = function (_a) {
     }, []);
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
+    var slickSettings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        // speed: 500,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
     return (React.createElement(Wrapper$2, null,
+        React.createElement(SlickWrapper, null,
+            React.createElement(Slider, __assign({}, slickSettings),
+                React.createElement("div", null,
+                    React.createElement(SlickImage, { src: "/images/slick/slick-1.png", alt: "slide 1" })),
+                React.createElement("div", null,
+                    React.createElement(SlickImage, { src: "/images/slick/slick-2.png", alt: "slide 2" })),
+                React.createElement("div", null,
+                    React.createElement(SlickImage, { src: "/images/slick/slick-3.png", alt: "slide 3" })))),
         React.createElement(Header, null,
             React.createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React.createElement(Flex, { alignItems: "center" },
@@ -2730,7 +2753,7 @@ var Menu = function (_a) {
             React.createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
             React.createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };
-var templateObject_1$I, templateObject_2$f, templateObject_3$8, templateObject_4$3, templateObject_5$1, templateObject_6, templateObject_7, templateObject_8;
+var templateObject_1$I, templateObject_2$f, templateObject_3$8, templateObject_4$3, templateObject_5$1, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;
 
 var ToastAction = function (_a) {
     var action = _a.action;

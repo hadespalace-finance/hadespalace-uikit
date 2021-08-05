@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import throttle from "lodash/throttle";
+
+import Slider from "react-slick";
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import Overlay from "../../components/Overlay/Overlay";
 import { Flex } from "../../components/Flex";
 import { useMatchBreakpoints } from "../../hooks";
@@ -19,7 +25,7 @@ import { Skeleton } from "../../components/Skeleton";
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1320px;
   margin: auto;
 `;
 
@@ -95,6 +101,16 @@ const PriceLink = styled.a`
   }
 `;
 
+const SlickWrapper = styled.div`
+  margin-bottom: 10px;
+  width: 100%;
+`
+
+const SlickImage = styled.img`
+  width: 100%;
+  height: auto;
+`
+
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -148,8 +164,26 @@ const Menu: React.FC<NavProps> = ({
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
 
+  const slickSettings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    // speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   return (
     <Wrapper>
+      <SlickWrapper>
+        <Slider {...slickSettings}>
+          <div><SlickImage src="/images/slick/slick-1.png" alt="slide 1" /></div>
+          <div><SlickImage src="/images/slick/slick-2.png" alt="slide 2" /></div>
+          <div><SlickImage src="/images/slick/slick-3.png" alt="slide 3" /></div>
+        </Slider>
+      </SlickWrapper>
       <Header>
         <Logo
           isPushed={isPushed}
