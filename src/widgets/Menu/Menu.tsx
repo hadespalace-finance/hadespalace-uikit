@@ -21,6 +21,7 @@ import PanelFooter from "./PanelFooter";
 import { PancakeRoundIcon } from "../../components/Svg";
 import { Text } from "../../components/Text";
 import { Skeleton } from "../../components/Skeleton";
+import { RugDocIcon } from "./icons";
 
 const Wrapper = styled.div`
   position: relative;
@@ -123,6 +124,7 @@ const Menu: React.FC<NavProps> = ({
   cakePriceUsd,
   links,
   priceLink,
+  rugDocLink,
   profile,
   children,
 }) => {
@@ -191,6 +193,7 @@ const Menu: React.FC<NavProps> = ({
           isDark={isDark}
           href={homeLink?.href ?? "/"}
         />
+        <a href={rugDocLink} target="_blank"><RugDocIcon  /></a>
         <Flex alignItems="center">
           <PriceWrapper>
             {cakePriceUsd ? (
