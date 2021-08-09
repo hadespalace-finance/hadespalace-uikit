@@ -40,11 +40,11 @@ export interface PanelProps {
     setLang: (lang: LangType) => void;
     links: Array<MenuEntry>;
     priceLink: string;
+    rugDocLink?: string;
 }
 export interface NavProps extends PanelProps {
     account?: string;
     login: Login;
     profile?: Profile;
-    rugDocLink?: string;
     logout: () => void;
 }

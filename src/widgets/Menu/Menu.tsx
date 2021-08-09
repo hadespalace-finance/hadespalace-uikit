@@ -89,6 +89,18 @@ const PriceWrapper = styled.div`
   }
 `
 
+const RugDocLink = styled.a`
+  display: none;
+
+  & > svg {
+    width: 190px;
+  }
+
+  ${({ theme }) => theme.mediaQueries.nav} {
+    display: block;
+  }
+`
+
 const PriceLink = styled.a`
   display: flex;
   align-items: center;
@@ -193,7 +205,7 @@ const Menu: React.FC<NavProps> = ({
           isDark={isDark}
           href={homeLink?.href ?? "/"}
         />
-        <a href={rugDocLink} target="_blank"><RugDocIcon  /></a>
+        <RugDocLink href={rugDocLink} target="_blank"><RugDocIcon /></RugDocLink>
         <Flex alignItems="center">
           <PriceWrapper>
             {cakePriceUsd ? (
@@ -237,6 +249,7 @@ const Menu: React.FC<NavProps> = ({
           pushNav={setIsPushed}
           links={links}
           priceLink={priceLink}
+          rugDocLink={rugDocLink}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
