@@ -2297,7 +2297,7 @@ var socials = [
     {
         label: "Gitbook",
         icon: "GitbookIcon",
-        href: "https://hades-palace.gitbook.io/hades-palace/",
+        href: "https://hades-palace-1.gitbook.io/hades-palace/",
     },
     {
         label: "Telegram",
